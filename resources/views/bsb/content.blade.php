@@ -1,0 +1,1 @@
+content.blade.php
