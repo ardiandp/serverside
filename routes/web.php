@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\KategoriControllers;
 use App\Http\Controllers\TestController;
+use App\Http\Controllers\PasswordController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,3 +27,7 @@ Route::resource('bsb',BsbController::class);
 //test 
 Route::get('/test', [TestController::class, 'index']);
 Route::get('/test/template', [TestController::class, 'template']);
+Route::get('/test/blank', [TestController::class, 'blank']);
+
+//password
+Route::get('/password', [PasswordController::class, 'index']);

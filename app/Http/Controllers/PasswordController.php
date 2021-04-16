@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class TestController extends Controller
+class PasswordController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +13,7 @@ class TestController extends Controller
      */
     public function index()
     {
-        return view('test.index');
+        return view('password.index');
     }
 
     /**
@@ -80,15 +80,5 @@ class TestController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function template()
-    {
-        return view('bsb.content');
-    }
-
-    public function blank()
-    {
-        return view('bsb.blank');
     }
 }
