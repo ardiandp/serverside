@@ -35,18 +35,13 @@
                         </a>
                     </li>
                     <li>
-                        <a href="../../pages/typography.html">
+                        <a href="{{url('/password')}} ">
                             <i class="material-icons">text_fields</i>
-                            <span>Typography</span>
+                            <span>Password</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="../../pages/helper-classes.html">
-                            <i class="material-icons">layers</i>
-                            <span>Helper Classes</span>
-                        </a>
-                    </li>
-                    <li>
+                   
+                    <!--<li>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">widgets</i>
                             <span>Widgets</span>
@@ -91,7 +86,7 @@
                                 </ul>
                             </li>
                         </ul>
-                    </li>
+                    </li> 
                     <li>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">swap_calls</i>
@@ -169,61 +164,20 @@
                                 <a href="../../pages/ui/waves.html">Waves</a>
                             </li>
                         </ul>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">assignment</i>
-                            <span>Forms</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="../../pages/forms/basic-form-elements.html">Basic Form Elements</a>
-                            </li>
-                            <li>
-                                <a href="../../pages/forms/advanced-form-elements.html">Advanced Form Elements</a>
-                            </li>
-                            <li>
-                                <a href="../../pages/forms/form-examples.html">Form Examples</a>
-                            </li>
-                            <li>
-                                <a href="../../pages/forms/form-validation.html">Form Validation</a>
-                            </li>
-                            <li>
-                                <a href="../../pages/forms/form-wizard.html">Form Wizard</a>
-                            </li>
-                            <li>
-                                <a href="../../pages/forms/editors.html">Editors</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="active">
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">view_list</i>
-                            <span>Tables</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li class="active">
-                                <a href="../../pages/tables/normal-tables.html">Normal Tables</a>
-                            </li>
-                            <li>
-                                <a href="../../pages/tables/jquery-datatable.html">Jquery Datatables</a>
-                            </li>
-                            <li>
-                                <a href="../../pages/tables/editable-table.html">Editable Tables</a>
-                            </li>
-                        </ul>
-                    </li>
+                    </li> -->
+                    
+                    
                     <li>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">perm_media</i>
-                            <span>Medias</span>
+                            <span>Bank</span>
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="../../pages/medias/image-gallery.html">Image Gallery</a>
+                                <a href="../../pages/medias/image-gallery.html">BCA Bisnis</a>
                             </li>
                             <li>
-                                <a href="../../pages/medias/carousel.html">Carousel</a>
+                                <a href="../../pages/medias/carousel.html">BCA Individu</a>
                             </li>
                         </ul>
                     </li>

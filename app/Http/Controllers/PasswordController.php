@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Password;
 class PasswordController extends Controller
 {
     /**
@@ -13,7 +13,8 @@ class PasswordController extends Controller
      */
     public function index()
     {
-        return view('password.index');
+        $pass = Password::latest()->get();
+        return view('password.index',compact('pass'));
     }
 
     /**
@@ -34,7 +35,13 @@ class PasswordController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $pass = new Password;
+        $pass->url = $request->url;
+        $pass->username = $request->username;
+        $pass->password = $request->password;
+        $pass->save();
+
+        return redirect('/password');
     }
 
     /**
@@ -79,6 +86,9 @@ class PasswordController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Password::find($id)->delete();
+
+        return response()->json(['success'=>'Customer deleted!']);
+
     }
 }

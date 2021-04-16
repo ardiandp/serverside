@@ -91,4 +91,9 @@ class TestController extends Controller
     {
         return view('bsb.blank');
     }
+
+    public function datatable()
+    {
+        return view('bsb.datatable');
+    }
 }
