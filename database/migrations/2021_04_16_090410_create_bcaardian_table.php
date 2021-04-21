@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBcaAkhdanTable extends Migration
+class CreateBcaArdianTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateBcaAkhdanTable extends Migration
      */
     public function up()
     {
-        Schema::create('bca_akhdan', function (Blueprint $table) {
+        Schema::create('bcaardian', function (Blueprint $table) {
             $table->id();
             $table->date('tanggal');
             $table->string('keterangan');
@@ -32,6 +32,6 @@ class CreateBcaAkhdanTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bca_akhdan');
+        Schema::dropIfExists('bca_ardian');
     }
 }

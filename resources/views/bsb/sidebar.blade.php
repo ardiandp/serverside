@@ -174,10 +174,13 @@
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="../../pages/medias/image-gallery.html">BCA Bisnis</a>
+                                <a href="{{url('bank/bcacv')}}">BCA Bisnis</a>
                             </li>
                             <li>
-                                <a href="../../pages/medias/carousel.html">BCA Individu</a>
+                                <a href="{{url('bank/bcaardian')}}">BCA Ardian</a>
+                            </li>
+                            <li>
+                                <a href="{{url('bank/bcaakhdan')}}">BCA Akhdan</a>
                             </li>
                         </ul>
                     </li>

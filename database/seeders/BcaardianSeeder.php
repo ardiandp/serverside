@@ -5,7 +5,8 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Faker\Factory as Faker;
-class BcacvSeeder extends Seeder
+
+class BcaardianSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,10 +15,10 @@ class BcacvSeeder extends Seeder
      */
     public function run()
     {
-       $faker = Faker::create('id_ID');
+        $faker = Faker::create('id_ID');
         for($i=1; $i <=12; $i++)
         {
-        	DB::table('bcacv')->insert([
+        	DB::table('bcaardian')->insert([
         	'tanggal'=> $faker->dateTimeThisCentury()->format('Y-m-d'),
        		'keterangan'=> $faker->name,
         	'cabang'=>  $faker->address,

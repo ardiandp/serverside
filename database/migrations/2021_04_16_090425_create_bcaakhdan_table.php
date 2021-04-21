@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBcaCvTable extends Migration
+class CreateBcaAkhdanTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateBcaCvTable extends Migration
      */
     public function up()
     {
-        Schema::create('bca_cv', function (Blueprint $table) {
+        Schema::create('bcaakhdan', function (Blueprint $table) {
             $table->id();
             $table->date('tanggal');
             $table->string('keterangan');
@@ -32,6 +32,6 @@ class CreateBcaCvTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bca_cv');
+        Schema::dropIfExists('bca_akhdan');
     }
 }

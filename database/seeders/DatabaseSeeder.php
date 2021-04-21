@@ -15,5 +15,8 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         PasswordSeeder::class,
+        BcacvSeeder::class,
+        BcaardianSeeder::class,
+        BcaakhdanSeeder::class,
     }
 }

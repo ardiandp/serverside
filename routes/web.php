@@ -5,7 +5,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\KategoriControllers;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\PasswordController;
-use App\Http\Controllers\BcacvController;
+use App\Http\Controllers\BankController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,9 +17,10 @@ use App\Http\Controllers\BcacvController;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
+}); */
+Route::get('/', [TestController::class, 'blank']);
 
 Route::resource('posts', PostController::class);
 
@@ -31,6 +32,8 @@ Route::get('/test/template', [TestController::class, 'template']);
 Route::get('/test/blank', [TestController::class, 'blank']);
 Route::get('/test/datatable', [TestController::class, 'datatable']);
 
+//Post
+Route::get('/post', [PostController::class, 'index']);
 
 //password
 Route::get('/password', [PasswordController::class, 'index']);
@@ -38,4 +41,6 @@ Route::post('/password/store', [PasswordController::class, 'store']);
 Route::get('/password/destroy/{id}', [PasswordController::class, 'destroy']);
 
 // BCA CV 
-Route::get('/bca_cv', [PasswordController::class, 'index']);
+Route::get('/bank/bcacv', [BankController::class, 'bcacv']);
+Route::get('/bank/bcaardian', [BankController::class, 'bcaardian']);
+Route::get('/bank/bcaakhdan', [BankController::class, 'bcaakhdan']);

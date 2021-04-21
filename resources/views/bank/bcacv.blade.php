@@ -6,21 +6,8 @@
     <section class="content">
         <div class="container-fluid">
 
-            
-   <!-- disini konten -->
-    <section class="content">
-        <div class="container-fluid">
-            <div class="block-header">
-                <h2>BLANK TABLES</h2>
-            </div>
- 
-    @if ($message = Session::get('success'))
-    <div class="alert alert-success">
-        <p>{{ $message }}</p>
-    </div>
-    @endif
- 
-    <!-- Exportable Table -->
+        	           
+            <!-- Exportable Table -->
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
@@ -46,30 +33,49 @@
                                <table class="table table-bordered table-striped table-hover dataTable js-exportable">
                                     <thead>
                                         <tr>
-       
-        @foreach ($posts as $post)
-        <tr>
-            <td class="text-center">{{ ++$i }}</td>
-            <td>{{ $post->title }}</td>
-            <td class="text-center">
-                <form action="{{ route('posts.destroy',$post->id) }}" method="POST">
- 
-                    <a class="btn btn-info btn-sm" href="{{ route('posts.show',$post->id) }}">Show</a>
- 
-                    <a class="btn btn-primary btn-sm" href="{{ route('posts.edit',$post->id) }}">Edit</a>
- 
-                    @csrf
-                    @method('DELETE')
- 
-                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Delete</button>
-                </form>
-            </td>
-        </tr>
-        @endforeach
-        
+                                            <th>No</th>
+                                            <th>Tanggal</th>
+                                            <th>Keterangan</th>
+                                            <th>Jumlah</th>
+                                            <th>Status</th>
+                                            <th>Saldo</th>
+                                            <th>aksi</th>
+                                           
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                             <th>No</th>
+                                            <th>Tanggal</th>
+                                            <th>Keterangan</th>
+                                            <th>Jumlah</th>
+                                            <th>Status</th>
+                                            <th>Saldo</th>
+                                            <th>aksi</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>@php $no = 1; @endphp
+                                    	@forelse($bank as $data)
+                                    	
+                                        <tr>
+                                            <td>{{$no++}}</td>
+                                            <td>{{$data->tanggal}}</td>
+                                            <td>{{$data->keterangan}}</td>
+                                            <td>{{$data->jumlah}}</td>
+                                            <td>{{$data->status}}</td>
+                                            <td>{{$data->saldo}}</td>
+                                            <td><a href="/password/destroy/{{ $data->id }}">Del</a> | Edit</td>                                            
+                                        </tr>
+                                      
+                                        @empty
+                                    <div class="alert alert-danger">
+                                      Data Blog belum Tersedia.
+                                  </div>
+                              @endforelse
+                                       
+                                        
                                     </tbody>
                                 </table>
-                                 {!! $posts->links() !!}
                             </div>
                         </div>
                     </div>
@@ -79,12 +85,8 @@
         </div>
     </section>
 
- 
-   
 
-
-<!-- akhir konten -->
-  @include ('bsb/footer')
+    @include ('bsb/footer')
 
      <!-- Jquery Core Js -->
     
