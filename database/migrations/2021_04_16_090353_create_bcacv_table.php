@@ -32,6 +32,6 @@ class CreateBcaCvTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bca_cv');
+        Schema::dropIfExists('bcacv');
     }
 }

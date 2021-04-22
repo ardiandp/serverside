@@ -25,7 +25,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view ('posts.create');
+        return view ('posts.input');
     }
 
     /**
@@ -41,8 +41,8 @@ class PostController extends Controller
             'content' => 'required',
         ]);
         Post::create($request->all());
-        return redirect()->route('posts.index')
-                ->with('success','Post Created Sucessfull');
+        return redirect()->route('posts');
+                
     }
 
     /**

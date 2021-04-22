@@ -6,6 +6,7 @@ use App\Http\Controllers\KategoriControllers;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\BankController;
+use App\Http\Controllers\ProdukController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,7 +34,9 @@ Route::get('/test/blank', [TestController::class, 'blank']);
 Route::get('/test/datatable', [TestController::class, 'datatable']);
 
 //Post
-Route::get('/post', [PostController::class, 'index']);
+Route::get('/posts', [PostController::class, 'index']);
+
+
 
 //password
 Route::get('/password', [PasswordController::class, 'index']);
@@ -44,3 +47,7 @@ Route::get('/password/destroy/{id}', [PasswordController::class, 'destroy']);
 Route::get('/bank/bcacv', [BankController::class, 'bcacv']);
 Route::get('/bank/bcaardian', [BankController::class, 'bcaardian']);
 Route::get('/bank/bcaakhdan', [BankController::class, 'bcaakhdan']);
+
+
+//Produk
+Route::get('/produk', [produkController::class, 'index']);

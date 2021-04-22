@@ -32,6 +32,6 @@ class CreateBcaAkhdanTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bca_akhdan');
+        Schema::dropIfExists('bcaakhdan');
     }
 }

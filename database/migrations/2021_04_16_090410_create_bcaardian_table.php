@@ -32,6 +32,6 @@ class CreateBcaArdianTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bca_ardian');
+        Schema::dropIfExists('bcaardian');
     }
 }

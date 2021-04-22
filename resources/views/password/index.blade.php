@@ -93,7 +93,8 @@
                                             <th>Aksi</th>
                                         </tr>
                                     </tfoot>
-                                    <tbody>@php $no = 1; @endphp
+                                    <tbody>
+                                        @php $no = 1; @endphp
                                     	@forelse($pass as $data)
                                     	
                                         <tr>

@@ -7,7 +7,7 @@
             <h2>Create New Post</h2>
         </div>
         <div class="float-right">
-            <a class="btn btn-secondary" href="{{ route('posts.index') }}"> Back</a>
+            <a class="btn btn-secondary" href="{{url('posts')}}"> Back</a>
         </div>
     </div>
 </div>
