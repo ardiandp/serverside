@@ -51,3 +51,4 @@ Route::get('/bank/bcaakhdan', [BankController::class, 'bcaakhdan']);
 
 //Produk
 Route::get('/produk', [produkController::class, 'index']);
+Route::get('/produk/create', [produkController::class, 'create']);
