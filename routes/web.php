@@ -7,6 +7,8 @@ use App\Http\Controllers\TestController;
 use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\BankController;
 use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\MyExportImportController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,6 +35,12 @@ Route::get('/test/template', [TestController::class, 'template']);
 Route::get('/test/blank', [TestController::class, 'blank']);
 Route::get('/test/datatable', [TestController::class, 'datatable']);
 
+//User
+Route::get('/users', [UserController::class, 'index']);
+//Route::delete('/users/{id}','UserController@destroy')->name('users.destroy');
+Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('users.destroy');
+
+
 //Post
 Route::get('/posts', [PostController::class, 'index']);
 
@@ -42,7 +50,7 @@ Route::get('/posts', [PostController::class, 'index']);
 Route::get('/password', [PasswordController::class, 'index']);
 Route::post('/password/store', [PasswordController::class, 'store']);
 Route::get('/password/destroy/{id}', [PasswordController::class, 'destroy']);
-
+Route::get('/password/edit/{id}', [PasswordController::class, 'edit']);
 // BCA CV 
 Route::get('/bank/bcacv', [BankController::class, 'bcacv']);
 Route::get('/bank/bcaardian', [BankController::class, 'bcaardian']);
@@ -52,3 +60,8 @@ Route::get('/bank/bcaakhdan', [BankController::class, 'bcaakhdan']);
 //Produk
 Route::get('/produk', [produkController::class, 'index']);
 Route::get('/produk/create', [produkController::class, 'create']);
+
+// Export Import Controller
+Route::get('importExportView', [ MyExportImportController::class, 'importExportView' ]);
+Route::get('export', [ MyExportImportController::class, 'export' ])->name('export');
+Route::post('import', [ MyExportImportController::class, 'import' ])->name('import');

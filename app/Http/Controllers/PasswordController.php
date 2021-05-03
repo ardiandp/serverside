@@ -88,7 +88,7 @@ class PasswordController extends Controller
     {
         Password::find($id)->delete();
 
-        return response()->json(['success'=>'Customer deleted!']);
-
+        //return response()->json(['success'=>'Customer deleted!']);
+        return redirect()->back();
     }
 }
