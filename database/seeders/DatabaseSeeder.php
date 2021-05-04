@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
         BcacvSeeder::class,
         BcaardianSeeder::class,
         BcaakhdanSeeder::class,
+        ProdukSeeder::class,
         ]);
     }
 }
