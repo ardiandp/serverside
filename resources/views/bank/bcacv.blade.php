@@ -21,9 +21,8 @@
                                         <i class="material-icons">more_vert</i>
                                     </a>
                                     <ul class="dropdown-menu pull-right">
-                                        <li><a href="javascript:void(0);">Import<li>
-                                        <li><a href="javascript:void(0);">Another action</a></li>
-                                        <li><a href="javascript:void(0);">Something else here</a></li>
+                                        <li><a href="{{url('bank/bcacvimport')}}">Import<li>
+                                        <li><a href="{{url('bank/bcacvexport')}}">Export<li>
                                     </ul>
                                 </li>
                             </ul>

@@ -55,6 +55,10 @@ Route::get('/password/edit/{id}', [PasswordController::class, 'edit']);
 Route::get('/bank/bcacv', [BankController::class, 'bcacv']);
 Route::get('/bank/bcaardian', [BankController::class, 'bcaardian']);
 Route::get('/bank/bcaakhdan', [BankController::class, 'bcaakhdan']);
+Route::get('/bank/bcacvimport', [BankController::class, 'bcacvimport']);
+Route::post('/bank/bcacvimportsave', [BankController::class, 'bcacvimportsave']);
+Route::get('/bank/bcacvexport', [ BankController::class, 'bcacvexport' ])->name('bcacvexport');
+
 
 
 //Produk
