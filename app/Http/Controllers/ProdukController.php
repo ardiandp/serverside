@@ -18,4 +18,9 @@ class ProdukController extends Controller
 
         return view('produk.create');
     }
+
+    public function save()
+    {
+    	
+    }
 }

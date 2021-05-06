@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBanktemsTable extends Migration
+class CreateBanktempTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,14 @@ class CreateBanktemsTable extends Migration
      */
     public function up()
     {
-        Schema::create('banktems', function (Blueprint $table) {
+        Schema::create('banktemp', function (Blueprint $table) {
             $table->id();
+            $table->date('tanggal');
+            $table->string('keterangan');
+            $table->string('cabang');
+            $table->string('jumlah');
+            $table->string('status');
+            $table->string('saldo');
             $table->timestamps();
         });
     }
@@ -26,6 +32,6 @@ class CreateBanktemsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('banktems');
+        Schema::dropIfExists('banktemp');
     }
 }
