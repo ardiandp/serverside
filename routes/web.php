@@ -25,7 +25,7 @@ use App\Http\Controllers\MyExportImportController;
 }); */
 Route::get('/', [TestController::class, 'blank']);
 
-Route::resource('posts', PostController::class);
+//Route::resource('posts', PostController::class);
 
 //Route::resource('bsb',BsbController::class);
 
@@ -51,6 +51,9 @@ Route::get('/password', [PasswordController::class, 'index']);
 Route::post('/password/store', [PasswordController::class, 'store']);
 Route::get('/password/destroy/{id}', [PasswordController::class, 'destroy']);
 Route::get('/password/edit/{id}', [PasswordController::class, 'edit']);
+
+
+
 // BCA CV 
 Route::get('/bank/bcacv', [BankController::class, 'bcacv']);
 Route::get('/bank/bcaardian', [BankController::class, 'bcaardian']);

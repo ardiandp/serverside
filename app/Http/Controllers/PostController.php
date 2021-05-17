@@ -42,7 +42,8 @@ class PostController extends Controller
             'content' => 'required',
         ]);
         Post::create($request->all());
-        return redirect()->route('posts');
+        //return redirect()->route('posts');
+        return view('posts');
                 
     }
 

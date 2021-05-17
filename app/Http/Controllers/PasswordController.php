@@ -63,7 +63,13 @@ class PasswordController extends Controller
      */
     public function edit($id)
     {
-        //
+         $pass = Password::latest()->get();
+         $edit = Password::findOrFail($id);
+         //return view('password.edit',compact('pass'));
+
+          return view('password.edit')
+            ->withPass($pass)
+            ->withEdit($edit);
     }
 
     /**

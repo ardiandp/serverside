@@ -11,27 +11,27 @@
                     <div class="card">
                         <div class="header">
                            <h2 class="card-inside-title">Input Data Akun</h2>
-                           <form action="{{url('password/store') }}" method="POST">
+                           <form action="{{url('password/update') }}" method="POST">
    							 @csrf
                              <div class="row clearfix">
                                 <div class="col-sm-4">
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <input type="text" name="url" class="form-control" placeholder="URL Domain" />
+                                            <input type="text" value="{{$edit->url}}" name="url" class="form-control" placeholder="URL Domain" />
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-sm-4">
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <input type="text" name="username" class="form-control" placeholder="Username" />
+                                            <input type="text" value="{{$edit->username}}" name="username" class="form-control" placeholder="Username" />
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-sm-4">
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <input type="text" name="password" class="form-control" placeholder="Password" />
+                                            <input type="text" value="{{$edit->password}}" name="password" class="form-control" placeholder="Password" />
                                         </div>
                                     </div>
                                 </div>
