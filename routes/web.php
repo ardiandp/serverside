@@ -51,7 +51,7 @@ Route::get('/password', [PasswordController::class, 'index']);
 Route::post('/password/store', [PasswordController::class, 'store']);
 Route::get('/password/destroy/{id}', [PasswordController::class, 'destroy']);
 Route::get('/password/edit/{id}', [PasswordController::class, 'edit']);
-
+Route::post('/password/update/{id}', [PasswordController::class, 'update']);
 
 
 // BCA CV 

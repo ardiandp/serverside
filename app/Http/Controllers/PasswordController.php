@@ -81,7 +81,20 @@ class PasswordController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+         $valid = [
+            'url' => 'required|min:3|max:191',
+            'username' => 'required|min:3',
+            'password' => 'required|min:3',
+        ];
+
+         
+
+        $request->validate($valid);
+
+        $pass = Password::findOrFail($id);
+        $pass->update($request->all());
+
+        return redirect('password');
     }
 
     /**

@@ -11,7 +11,7 @@
                     <div class="card">
                         <div class="header">
                            <h2 class="card-inside-title">Input Data Akun</h2>
-                           <form action="{{url('password/update') }}" method="POST">
+                           <form action="{{ url('password/update', $edit->id) }}" method="POST">
    							 @csrf
                              <div class="row clearfix">
                                 <div class="col-sm-4">
@@ -36,7 +36,7 @@
                                     </div>
                                 </div>
                                 <div class="body">
-                                	<input type="submit" name="simpan" class="btn btn-success waves-effect" value="Simpan Data">
+                                	<input type="submit" name="simpan" class="btn btn-success waves-effect" value="Update Data">
                             	
                             </div>
                             </div>
