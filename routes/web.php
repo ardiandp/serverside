@@ -67,6 +67,7 @@ Route::get('/bank/bcacvexport', [ BankController::class, 'bcacvexport' ])->name(
 //Produk
 Route::get('/produk', [produkController::class, 'index']);
 Route::get('/produk/create', [produkController::class, 'create']);
+Route::post('/produk/store', [produkController::class, 'store']);
 
 // Export Import Controller
 Route::get('importExportView', [ MyExportImportController::class, 'importExportView' ]);
