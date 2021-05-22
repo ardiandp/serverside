@@ -63,7 +63,7 @@
                                             <th> {{$data->harga}}</th>
                                             <th> {{$data->expired}} </th>
                                             <th>{{$data->publish}}</th>
-                                            <th><a href="" class="btn btn-sm btn-warning">Edit</a> <a href="" class="btn btn-sm btn-danger">Hapus</a></th>
+                                            <th><a href="{{url('produk/edit/'.$data->id)}}" class="btn btn-sm btn-warning">Edit</a> <a href="{{url('produk/destroy/'.$data->id)}}" class="btn btn-sm btn-danger">Hapus</a></th>
                                         </tr>                                    
                                   @empty
                                         <div class="alert alert-danger">

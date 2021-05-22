@@ -14,9 +14,8 @@ class KategoriController extends Controller
      */
     public function index()
     {
-        $kat = Kategori::latest()->paginate(5);
+        $kategori = Kategori::latest()->get();
         return view('kategori.index',compact('kategori'));
-        ->with('i',(request()->input('page',1)-1)*5);
     }
 
     /**
@@ -39,10 +38,12 @@ class KategoriController extends Controller
     {
         $request->validate([
             'nama_kategori'=>'required',
+            'keterangan'=> 'required',
         ]);
 
         Kategori::create($request->all());
-        ->with('success','Kategori Created Successfull');
+        return back()
+         ->with('success','Kategori Created Successfull');
     }
 
     /**
@@ -65,6 +66,11 @@ class KategoriController extends Controller
     public function edit($id)
     {
         //
+        $edit = Kategori::findOrFail($id);
+        $kategori = Kategori::latest()->get();
+        return view ('kategori.edit')
+        ->withKategori($kategori)
+        ->withEdit($edit);
     }
 
     /**
@@ -76,7 +82,15 @@ class KategoriController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $valid = [
+            'nama_kategori' => 'required',
+            'keterangan' => 'required'
+        ];
+        $request->validate($valid);
+        $kat = Kategori::findOrFail($id);
+        $kat->update($request->all());
+
+        return back();
     }
 
     /**

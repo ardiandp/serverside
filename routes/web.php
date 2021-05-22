@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
-use App\Http\Controllers\KategoriControllers;
+use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\BankController;
@@ -68,6 +68,17 @@ Route::get('/bank/bcacvexport', [ BankController::class, 'bcacvexport' ])->name(
 Route::get('/produk', [produkController::class, 'index']);
 Route::get('/produk/create', [produkController::class, 'create']);
 Route::post('/produk/store', [produkController::class, 'store']);
+Route::get('/produk/edit/{id}', [produkController::class, 'edit']);
+Route::post('/produk/update/{id}', [produkController::class, 'update']);
+Route::get('/produk/destroy/{id}', [produkController::class, 'destroy']);
+
+//Kategori
+Route::get('/kategori', [KategoriController::class, 'index']);
+Route::post('/kategori/store', [KategoriController::class, 'store']);
+Route::get('/kategori/edit/{id}', [KategoriController::class, 'edit']);
+Route::post('/kategori/update/{id}', [KategoriController::class, 'update']);
+Route::get('/kategori/destroy/{id}', [KategoriController::class, 'destroy']);
+
 
 // Export Import Controller
 Route::get('importExportView', [ MyExportImportController::class, 'importExportView' ]);

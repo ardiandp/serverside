@@ -11,7 +11,7 @@
     <section class="content">
         <div class="container-fluid">
             <div class="block-header">
-                <a href="{{url('produk')}}" class="btn btn-default">Tampil Produk </a>
+                <a href="{{url('produk')}}" class="btn btn-default">Back </a>
             </div>
 
               @if ($message = Session::get('success'))
@@ -37,42 +37,42 @@
                 <div class="col-xs-12 col-sm-9">
                     <div class="card">
                         <div class="header">
-                            <h2>Tambah Produk</h2>
+                            <h2>Edit Produk</h2>
                            
                         </div>
                         <div class="body">
 
-                            <form id="form_validation" action="{{url('produk/store') }}" method="POST" enctype="multipart/form-data">
+                            <form id="form_validation" action="{{url('produk/update') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                
                                 <div class="form-group form-float">
                                     <div class="form-line" >
-                                        <input type="text" readonly value="{{rand(1000,9999)}}" name="kode_produk" class="form-control" required>
+                                        <input type="text" value="{{$edit->kode_produk}}" name="kode_produk" class="form-control" required>
                                         <label class="form-label">Kode Produk</label>
                                     </div>
                                 </div>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" name="nama_produk" class="form-control" name="surname" required>
+                                        <input type="text" value="{{$edit->nama_produk}}" name="nama_produk" class="form-control" name="surname" required>
                                         <label class="form-label">Nama Produk</label>
                                     </div>
                                 </div>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" name="berat" class="form-control"  required>
+                                        <input type="text" value="{{$edit->berat}}" name="berat" class="form-control"  required>
                                         <label class="form-label">Berat</label>
                                     </div>
                                 </div>
-                                
+                               
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <textarea name="keterangan" cols="30" rows="5" class="form-control no-resize" ></textarea>
+                                        <textarea name="keterangan" cols="30" rows="5" class="form-control no-resize" required> {{$edit->keterangan}}"</textarea>
                                         <label class="form-label">Keterangan</label>
                                     </div>
                                 </div>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" name="harga" class="form-control" required>
+                                        <input type="text" value="{{$edit->harga}}" name="harga" class="form-control" required>
                                         <label class="form-label">Harga</label>
                                     </div>
                                 </div>
@@ -81,7 +81,7 @@
                                     <input type="checkbox" id="checkbox" name="checkbox">
                                     <label for="checkbox">I have read and accept the terms</label>
                                 </div> -->
-                               
+                                <button class="btn btn-warning waves-effect" type="submit">Update</button>
                             
                         </div>
                     </div>
@@ -129,8 +129,7 @@
                     </div>
                 </div>
             </div>
-
-            
+            </div>
             <!-- #END# Basic Validation -->
                  </form>
         

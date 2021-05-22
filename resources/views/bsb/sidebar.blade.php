@@ -67,6 +67,9 @@
                             <li>
                                 <a href="{{url('produk')}}">Produk</a>
                             </li>
+                             <li>
+                                <a href="{{url('kategori')}}">Kategori</a>
+                            </li>
                             
                         </ul>
                     </li>

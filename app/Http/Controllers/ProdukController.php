@@ -34,12 +34,12 @@ class ProdukController extends Controller
         $pass = new Produk;     
         $pass->kode_produk = $request->kode_produk;
         $pass->nama_produk = $request->nama_produk;
-        $pass->id_kategori = $request->nama_produk; 
-        $pass->berat = $request->nama_produk;
-        $pass->keterangan = $request->nama_produk;
-        $pass->expired = $request->nama_produk;
-        $pass->publish = $request->nama_produk;
-        $pass->harga = $request->nama_produk;
+        $pass->id_kategori = $request->id_kategori; 
+        $pass->berat = $request->berat;
+        $pass->keterangan = $request->keterangan;
+        $pass->expired = $request->expired;
+        $pass->publish = $request->publish;
+        $pass->harga = $request->harga;
         $pass->gambar = $imageName;       
         $pass->save();
 
@@ -47,4 +47,24 @@ class ProdukController extends Controller
             ->with('success','You have successfully upload image.')
             ->with('image',$imageName); 
     }
+
+    public function edit($id)
+    {
+         $edit = Produk::findOrFail($id);
+        return view('Produk.edit')
+            ->withEdit($edit);
+    }
+
+    public function update()
+    {
+
+    }
+
+    public function destroy($id)
+    {
+        Produk::find($id)->delete();
+        return redirect()->back();
+    }
+
+
 }
