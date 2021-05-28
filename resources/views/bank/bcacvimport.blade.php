@@ -55,8 +55,32 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                        
+                         <div class="header">
+                            <h2>
+                                Data Import Disimpan Ditable Sementara, Silahkan dicek 
+                            </h2>
+                            <ul class="header-dropdown m-r--5">
+                                <li class="dropdown">
+                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="material-icons">more_vert</i>
+                                    </a>
+                                    <ul class="dropdown-menu pull-right">
+                                        <li><a href="{{url('bank/bcatemptocv')}}">Pindah Ke Bca CV </a><li>
+                                        <li><a href="{{url('bank/bcatempempty')}}">Kosongkan Temp </a><li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                         
+     
                         <div class="body">
-                            <div class="table-responsive">
+                             @if ($message = Session::get('success'))        
+                             <div class="alert alert-success">
+                                      <strong>{{ $message }}</strong>
+                                  </div>       
+                            @endif
+    
+                            <div class="table-responsive"> 
                                <table class="table table-bordered table-striped table-hover dataTable js-exportable">
                                     <thead>
                                         <tr>
@@ -71,15 +95,21 @@
                                         </tr>
                                     </thead>
                                     <tfoot>
+                                          <tbody>@php $no = 1; @endphp
+                                        @forelse($temp as $data)
                                         <tr>
-                                            <th> </th>
-                                            <th> </th>
-                                            <th> </th>
-                                            <th> </th>
-                                            <th> </th>
-                                            <th> </th>
-                                            <th> </th>
+                                            <td>{{$no++}}</td>
+                                            <td>{{$data->tanggal}}</td>
+                                            <td>{{$data->keterangan}}</td>
+                                            <td>{{$data->cabang}}</td>
+                                            <td>{{$data->jumlah}}</td>
+                                            <td>{{$data->status}}</td>
+                                            <td>{{$data->saldo}}</td>
                                         </tr>
+                                      @empty
+                                   
+                              @endforelse 
+                                       
                                     </tfoot>
                                     <tbody>
                                        

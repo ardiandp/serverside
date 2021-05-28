@@ -61,6 +61,9 @@ Route::get('/bank/bcaakhdan', [BankController::class, 'bcaakhdan']);
 Route::get('/bank/bcacvimport', [BankController::class, 'bcacvimport']);
 Route::post('/bank/bcacvimportsave', [BankController::class, 'bcacvimportsave']);
 Route::get('/bank/bcacvexport', [ BankController::class, 'bcacvexport' ])->name('bcacvexport');
+Route::get('/bank/bcatempempty', [ BankController::class, 'bcatempempty' ])->name('bcatempempty');
+Route::get('/bank/bcatemptocv', [ BankController::class, 'bcatemptocv' ])->name('bcatemptocv');
+
 
 
 
