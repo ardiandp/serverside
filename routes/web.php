@@ -34,6 +34,7 @@ Route::get('/test', [TestController::class, 'index']);
 Route::get('/test/template', [TestController::class, 'template']);
 Route::get('/test/blank', [TestController::class, 'blank']);
 Route::get('/test/datatable', [TestController::class, 'datatable']);
+Route::get('/test/viewimage', [TestController::class, 'viewimage']);
 
 //User
 Route::get('/users', [UserController::class, 'index']);

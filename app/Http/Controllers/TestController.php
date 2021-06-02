@@ -96,4 +96,9 @@ class TestController extends Controller
     {
         return view('bsb.datatable');
     }
+
+    public function viewimage()
+    {
+        return view ('test.viewimage');
+    }
 }

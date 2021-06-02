@@ -95,10 +95,14 @@
                          <div class="body">
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                       <select name="" class="form-control show-tick">
-                                           <option value="">Pilih Katgeoru </option>
-                                           <option value="">Pilih pertema </option>
-                                           <option value="">Pilih kedua </option>
+                                       <select name="id_kategori" class="form-control show-tick">
+                                        @forelse($kat as $data)
+                                           <option value="{{$data->id}}">{{$data->nama_kategori}} </option>                                    
+                                       @empty
+                                 
+                                       <option value="">Data Belum ada </option>
+                                  
+                                    @endforelse
                                        </select>
                                         <label class="form-label">Pilih Kategori</label>
                                     </div>

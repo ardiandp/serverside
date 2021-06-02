@@ -81,7 +81,19 @@
                         <ul class="ml-menu">
                             <li>
                                 <a href="{{url('posts')}}">Post</a>
-                            </li>                            
+                            </li> 
+                             <li>
+                                <a href="{{url('test/datatable')}}">Datatable</a>
+                            </li>  
+                            <li>
+                                <a href="{{url('test/blank')}}">Blank</a>
+                            </li> 
+                            <li>
+                                <a href="{{url('test/template')}}">Template</a>
+                            </li> 
+                            <li>
+                                <a href="{{url('test/viewimage')}}">View Image</a>
+                            </li>                           
                         </ul>
                     </li>
                     

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Produk;
+use App\Models\Kategori;
 
 class ProdukController extends Controller
 {
@@ -15,8 +16,9 @@ class ProdukController extends Controller
 
     public function create()
     {
-
-        return view('produk.create');
+         $kat = Kategori::latest()->get();
+         return view('produk.create')
+             ->withKat($kat);
     }
 
     public function store(Request $request)
@@ -51,7 +53,7 @@ class ProdukController extends Controller
     public function edit($id)
     {
          $edit = Produk::findOrFail($id);
-        return view('Produk.edit')
+        return view('produk.edit')
             ->withEdit($edit);
     }
 
@@ -63,7 +65,8 @@ class ProdukController extends Controller
     public function destroy($id)
     {
         Produk::find($id)->delete();
-        return redirect()->back();
+        return redirect()->back()
+         ->with('success','You have successfully Delete Produk.');
     }
 
 
