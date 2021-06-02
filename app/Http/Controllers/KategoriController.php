@@ -38,6 +38,7 @@ class KategoriController extends Controller
     {
         $request->validate([
             'nama_kategori'=>'required',
+
             'keterangan'=> 'required',
         ]);
 
@@ -90,7 +91,8 @@ class KategoriController extends Controller
         $kat = Kategori::findOrFail($id);
         $kat->update($request->all());
 
-        return back();
+        return back()
+        ->with('success','You have successfully Update Kategori.');;
     }
 
     /**
@@ -99,10 +101,10 @@ class KategoriController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Kategori $id)
+    public function destroy($id)
     {
-        $id->delete();
-        return redirect()->route('kategori.index')
-        ->with('success','Kategori deleted Sucessfull');
+        Kategori::find($id)->delete();
+        return redirect()->back()
+         ->with('success','You have successfully Delete Kategori.');
     }
 }

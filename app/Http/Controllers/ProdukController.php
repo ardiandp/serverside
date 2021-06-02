@@ -53,8 +53,10 @@ class ProdukController extends Controller
     public function edit($id)
     {
          $edit = Produk::findOrFail($id);
+         $kat  = Kategori::latest()->get();
         return view('produk.edit')
-            ->withEdit($edit);
+            ->withEdit($edit)
+            ->withKat($kat);
     }
 
     public function update()

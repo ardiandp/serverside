@@ -122,10 +122,11 @@
                                     </div>
                                 </div>
 
+                              
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="file" name="image" class="form-control">
-                                        <label class="form-label">Images</label>
+                                         <input type="file" name="image" onchange="preview()">
+                                        <img id="frame" src="" width="100px" height="100px"/>
                                     </div>
                                 </div>
                                  <button class="btn btn-primary waves-effect" type="submit">SIMPAN</button>
@@ -140,5 +141,11 @@
         
         </div>
     </section>
+    <script type="text/javascript">
+        function preview() 
+        {
+         frame.src=URL.createObjectURL(event.target.files[0]);
+        }
+    </script>
 
 @include ('bsb/footer')

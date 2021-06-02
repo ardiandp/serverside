@@ -102,7 +102,7 @@
                                             <td>{{$data->url}}</td>
                                             <td>{{$data->username}}</td>
                                             <td>{{$data->password}}</td>
-                                            <td><a href="/password/destroy/{{ $data->id }}" class="btn-danger btn-sm">Hapus</a> | <a href="{{url('/password/edit/'.$data->id)}}" class="btn-warning btn-sm" >Edit</a></td>                                            
+                                            <td><a href="{{url('/password/destroy/'.$data->id)}}" class="btn-danger btn-sm">Hapus</a> | <a href="{{url('/password/edit/'.$data->id)}}" class="btn-warning btn-sm" >Edit</a></td>                                            
                                         </tr>
                                       
                                         @empty

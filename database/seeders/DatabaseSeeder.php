@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
         BcaardianSeeder::class,
         BcaakhdanSeeder::class,
         ProdukSeeder::class,
+        KategoriSeeder::class,
         ]);
     }
 }

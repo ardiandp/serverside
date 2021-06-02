@@ -29,6 +29,11 @@
                             </ul>
                         </div>
                         <div class="body">
+                             @if ($message = Session::get('success'))        
+                             <div class="alert alert-success">
+                                      <strong>{{ $message }}</strong>
+                                  </div>       
+                            @endif
                             <div class="table-responsive">
                                <table class="table table-bordered table-striped table-hover dataTable js-exportable">
                                     <thead>
@@ -57,7 +62,7 @@
                                         @php $no = 1; @endphp
                                     	@forelse($produk as $data)
                                         <tr>
-                                            <th> {{$no}}</th>
+                                            <th> {{$no++}}</th>
                                             <th>{{$data->nama_produk}} </th>
                                             <th>{{$data->berat}}</th>
                                             <th> {{$data->harga}}</th>

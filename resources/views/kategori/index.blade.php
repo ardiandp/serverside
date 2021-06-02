@@ -114,7 +114,7 @@
                                             <td>{{$no++}}</td>
                                             <td>{{$data->nama_kategori}}</td>
                                             <td>{{$data->keterangan}}</td>
-                                            <td><a href="{{url('/kategori/edit/'.$data->id)}}" class="btn-warning btn-sm" >Edit</a> | <a href="{{url('/kategori/edit/'.$data->id)}}" class="btn-warning btn-sm" >Edit</a></td>                                            
+                                            <td><a href="{{url('/kategori/edit/'.$data->id)}}" class="btn-warning btn-sm" >Edit</a> | <a href="{{url('/kategori/destroy/'.$data->id)}}" class="btn-danger btn-sm" >Hapus</a></td>                                            
                                         </tr>
                                       
                                         @empty
