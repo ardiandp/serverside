@@ -38,8 +38,7 @@
                                             <th>Keterangan</th>
                                             <th>Jumlah</th>
                                             <th>Status</th>
-                                            <th>Saldo</th>
-                                            <th>aksi</th>
+                                           
                                            
                                         </tr>
                                     </thead>
@@ -50,8 +49,7 @@
                                             <th>Keterangan</th>
                                             <th>Jumlah</th>
                                             <th>Status</th>
-                                            <th>Saldo</th>
-                                            <th>aksi</th>
+                                           
                                         </tr>
                                     </tfoot>
                                     <tbody>@php $no = 1; @endphp
@@ -63,8 +61,7 @@
                                             <td>{{$data->keterangan}}</td>
                                             <td>{{$data->jumlah}}</td>
                                             <td>{{$data->status}}</td>
-                                            <td>{{$data->saldo}}</td>
-                                            <td><a href="/password/destroy/{{ $data->id }}">Del</a> | Edit</td>                                            
+                                                                   
                                         </tr>
                                       
                                         @empty
