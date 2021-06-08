@@ -70,6 +70,9 @@
                              <li>
                                 <a href="{{url('kategori')}}">Kategori</a>
                             </li>
+                             <li>
+                                <a href="{{url('kdbank')}}">Kode Bank</a>
+                            </li>
                             
                         </ul>
                     </li>

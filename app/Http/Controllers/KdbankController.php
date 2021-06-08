@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Kategori;
 
-class KategoriController extends Controller
+class KdbankController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +13,9 @@ class KategoriController extends Controller
      */
     public function index()
     {
-        $kategori = Kategori::latest()->get();
-        return view('kategori.index',compact('kategori'));
+        $kdbnak = Kdbank::latest()->get();
+        return view('bank.kdbank',compact('kdbank'));
+
     }
 
     /**
@@ -25,7 +25,7 @@ class KategoriController extends Controller
      */
     public function create()
     {
-        return view(kategori.create);
+        //
     }
 
     /**
@@ -37,13 +37,13 @@ class KategoriController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nama_kategori'=>'required',
-            'keterangan'=> 'required',
+            'nama_bank' =>'required',
+            'kode' => 'required',
         ]);
 
-        Kategori::create($request->all());
+        Kdbank::create($request->all());
         return back()
-         ->with('success','Kategori Created Successfull');
+        ->with('success','bank Creates Successfull');
     }
 
     /**
@@ -65,12 +65,11 @@ class KategoriController extends Controller
      */
     public function edit($id)
     {
-        //
-        $edit = Kategori::findOrFail($id);
-        $kategori = Kategori::latest()->get();
-        return view ('kategori.edit')
-        ->withKategori($kategori)
-        ->withEdit($edit);
+       $edit = Kdbank::FIndOrFail($id);
+       $kdbank = Kdbank::latest()->get();
+       return view('bank.edit_kdbank')
+       ->withEdit($edit)
+       ->withKdbank($kdbank);
     }
 
     /**
@@ -83,15 +82,15 @@ class KategoriController extends Controller
     public function update(Request $request, $id)
     {
         $valid = [
-            'nama_kategori' => 'required',
-            'keterangan' => 'required'
+            'nama_bank'=>'requires',
+            'kode'=>'required'
         ];
         $request->validate($valid);
-        $kat = Kategori::findOrFail($id);
-        $kat->update($request->all());
+        $kdbank = Kdbank::FIndOrFail($id);
+        $kdbank>->update($request->all());
 
         return back()
-        ->with('success','You have successfully Update Kategori.');
+        ->with('success','Update Sucessfull');
     }
 
     /**
@@ -102,8 +101,8 @@ class KategoriController extends Controller
      */
     public function destroy($id)
     {
-        Kategori::find($id)->delete();
+        Kdbank::find($id)->delete();
         return redirect()->back()
-         ->with('success','You have successfully Delete Kategori.');
+        ->with('success','data berjasil di hapus ');
     }
 }
