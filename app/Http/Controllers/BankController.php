@@ -20,6 +20,34 @@ class BankController extends Controller
     return view('bank.bcacv',compact('bank'));   
    }
 
+  public function index(Request $request)
+   {
+    
+     if ($request->ajax()) {
+
+            $data = Bcacv::select('*');
+
+            return Datatables::of($data)
+
+                    ->addIndexColumn()
+
+                    ->addColumn('action', function($row){     
+
+                           $btn = '<a href="javascript:void(0)" class="edit btn btn-primary btn-sm">View</a>';   
+
+                            return $btn;
+
+                    })
+
+                    ->rawColumns(['action'])
+
+                    ->make(true);
+                    print_r($data);
+        }       
+       
+        return view('bank.bcacvajax');
+   }
+
    public function bcacvimport()
    {
       $temp = Banktemp::latest()->get();

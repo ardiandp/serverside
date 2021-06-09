@@ -86,6 +86,9 @@
                                 <a href="{{url('posts')}}">Post</a>
                             </li> 
                              <li>
+                                <a href="{{url('users')}}">Users</a>
+                            </li> 
+                             <li>
                                 <a href="{{url('test/datatable')}}">Datatable</a>
                             </li>  
                             <li>

@@ -4,18 +4,39 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use DataTables;
 
 class UserController extends Controller
 {
-    public function index()
-    {
-      $users = User::get();
-      return view('test.user',compact('users'));
-    }
 
-    public function destroy(Request $request,$id)
+  public function index(Request $request)
+
     {
-      User::where('id',$id)->delete();
-      return back();
+
+        if ($request->ajax()) {
+
+            $data = User::select('*');
+
+            return Datatables::of($data)
+
+                    ->addIndexColumn()
+
+                    ->addColumn('action', function($row){     
+
+                           $btn = '<a href="javascript:void(0)" class="edit btn btn-primary btn-sm">View</a> <a href="javascript:void(0)" class="edit btn btn-warning btn-sm">Edit</a> ';   
+
+                            return $btn;
+
+                    })
+
+                    ->rawColumns(['action'])
+
+                    ->make(true);
+
+        }       
+
+        return view('test.user');
+
     }
+   
 }

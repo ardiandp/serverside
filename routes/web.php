@@ -37,9 +37,9 @@ Route::get('/test/datatable', [TestController::class, 'datatable']);
 Route::get('/test/viewimage', [TestController::class, 'viewimage']);
 
 //User
-Route::get('/users', [UserController::class, 'index']);
+Route::get('users', [UserController::class, 'index'])->name('users.index');
 //Route::delete('/users/{id}','UserController@destroy')->name('users.destroy');
-Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('users.destroy');
+//Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('users.destroy');
 
 
 //Post
@@ -57,6 +57,7 @@ Route::post('/password/update/{id}', [PasswordController::class, 'update']);
 
 // BCA CV 
 Route::get('/bank/bcacv', [BankController::class, 'bcacv']);
+Route::get('bank/index', [BankController::class, 'index'])->name('bank.index');
 Route::get('/bank/bcaardian', [BankController::class, 'bcaardian']);
 Route::get('/bank/bcaakhdan', [BankController::class, 'bcaakhdan']);
 Route::get('/bank/bcacvimport', [BankController::class, 'bcacvimport']);

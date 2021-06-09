@@ -6,7 +6,7 @@
     <section class="content">
         <div class="container-fluid">
 
-        	
+        
             
             <!-- Exportable Table -->
             <div class="row clearfix">
@@ -14,7 +14,7 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                                EXPORTABLE TABLE
+                               Data Users
                             </h2>
                             <ul class="header-dropdown m-r--5">
                                 <li class="dropdown">
@@ -31,47 +31,32 @@
                         </div>
                         <div class="body">
                             <div class="table-responsive">
-                               <table class="table table-bordered table-striped table-hover dataTable js-exportable">
-                                    <thead>
-                                        <tr>
-                                            <th>No</th>
-                                            <th>Url</th>
-                                            <th>Username</th>
-                                            <th>Pasword</th>
-                                            <th>Aksi</th>
-                                           
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                             <th>No</th>
-                                            <th>Url</th>
-                                            <th>Username</th>
-                                            <th>Pasword</th>
-                                            <th>Aksi</th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody>
-                                        @php $no = 1; @endphp
-                                    	@forelse($pass as $data)
-                                    	
-                                        <tr>
-                                            <td>{{$no++}}</td>
-                                            <td>{{$data->url}}</td>
-                                            <td>{{$data->username}}</td>
-                                            <td>{{$data->password}}</td>
-                                            <td><a href="{{url('/password/destroy/'.$data->id)}}" class="btn-danger btn-sm">Hapus</a> | <a href="{{url('/password/edit/'.$data->id)}}" class="btn-warning btn-sm" >Edit</a></td>                                            
-                                        </tr>
-                                      
-                                        @empty
-                                    <div class="alert alert-danger">
-                                      Data Blog belum Tersedia.
-                                  </div>
-                              @endforelse
-                                       
-                                        
-                                    </tbody>
-                                </table>
+
+
+                               <table class="table table-bordered data-table">
+
+                                <thead>
+
+                                    <tr>
+
+                <th>No</th>
+
+                <th>Name</th>
+
+                <th>Email</th>
+
+                <th width="100px">Action</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+        </tbody>
+
+                                     </table>
+
                             </div>
                         </div>
                     </div>
@@ -102,5 +87,27 @@
  
     <script src="{{url('/assets/js/pages/tables/jquery-datatable.js') }}"></script>
 </body>
+
+<script type="text/javascript">
+  $(function () {
+    var table = $('.data-table').DataTable({
+        processing: true,
+        serverSide: true,
+        ajax: "{{ route('bank.index') }}",
+
+        columns: [
+
+            {data: 'id', name: 'id'},
+
+            {data: 'tanggal', name: 'tanggal'},
+
+            {data: 'keterangan', name: 'email'},
+
+            {data: 'action', name: 'action', orderable: false, searchable: false},
+
+        ]
+    });  
+  });
+</script>
 
 </html>

@@ -1,69 +1,113 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Laravel Sweet Alert Confirm Delete Example-nicesnippets.com</title>
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.css">
-  <script src="http://demo.itsolutionstuff.com/plugin/jquery.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
-	<meta name="csrf-token" content="{{ csrf_token() }}">
-</head>
-<body class="bg-dark">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-8 offset-md-2">
-        <div class="card mt-5">
-          <div class="card-header">
-            <h5>Laravel Sweet Alert Confirm Delete Example-nicesnippets.com</h5>
-          </div>
-          <div class="card-body">
-            <table class="table table-bordered">
-              <tr>
-                <td>Name</td>
-                <td>Email</td>
-                <td width="5%">Action</td>
-              </tr>
-                @foreach($users as $user)
-                <tr>
-                  <td>{{ $user->name }}</td>  
-                  <td>{{ $user->email }}</td>  
-                  <td>
-                    <button class="btn btn-danger btn-flat btn-sm remove-user" data-id="{{ $user->id }}" data-action="{{ route('users.destroy',$user->id) }}"> Delete</button>
-                  </td>  
-                </tr>
-                @endforeach
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-<script type="text/javascript">
-  $("body").on("click",".remove-user",function(){
-    var current_object = $(this);
-    swal({
-        title: "Are you sure?",
-        text: "You will not be able to recover this imaginary file!",
-        type: "error",
-        showCancelButton: true,
-        dangerMode: true,
-        cancelButtonClass: '#DD6B55',
-        confirmButtonColor: '#dc3545',
-        confirmButtonText: 'Delete!',
-    },function (result) {
-        if (result) {
-            var action = current_object.attr('data-action');
-            var token = jQuery('meta[name="csrf-token"]').attr('content');
-            var id = current_object.attr('data-id');
+@include ('bsb/header')
+@include ('bsb/sidebar')
+ <!-- JQuery DataTable Css -->
+    <link href="{{url('/assets/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css') }}" rel="stylesheet">
 
-            $('body').html("<form class='form-inline remove-form' method='post' action='"+action+"'></form>");
-            $('body').find('.remove-form').append('<input name="_method" type="hidden" value="delete">');
-            $('body').find('.remove-form').append('<input name="_token" type="hidden" value="'+token+'">');
-            $('body').find('.remove-form').append('<input name="id" type="hidden" value="'+id+'">');
-            $('body').find('.remove-form').submit();
-        }
-    });
-});
-</script>
+    <section class="content">
+        <div class="container-fluid">
+
+        
+            
+            <!-- Exportable Table -->
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>
+                               Data Users
+                            </h2>
+                            <ul class="header-dropdown m-r--5">
+                                <li class="dropdown">
+                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="material-icons">more_vert</i>
+                                    </a>
+                                    <ul class="dropdown-menu pull-right">
+                                        <li><a href="javascript:void(0);">Import<li>
+                                        <li><a href="javascript:void(0);">Another action</a></li>
+                                        <li><a href="javascript:void(0);">Something else here</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="body">
+                            <div class="table-responsive">
+
+
+                               <table class="table table-bordered data-table">
+
+                                <thead>
+
+                                    <tr>
+
+                <th>No</th>
+
+                <th>Name</th>
+
+                <th>Email</th>
+
+                <th width="100px">Action</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+        </tbody>
+
+                                     </table>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- #END# Exportable Table -->
+        </div>
+    </section>
+
+
+    @include ('bsb/footer')
+
+     <!-- Jquery Core Js -->
+    
+
+   <!-- Jquery DataTable Plugin Js -->
+    <script src="{{url('/assets/plugins/jquery-datatable/jquery.dataTables.js') }}"></script>
+    <script src="{{url('/assets/plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js') }}"></script>
+    <script src="{{url('/assets/plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js') }}"></script>
+    <script src="{{url('/assets/plugins/jquery-datatable/extensions/export/buttons.flash.min.js') }}"></script>
+    <script src="{{url('/assets/plugins/jquery-datatable/extensions/export/jszip.min.js') }}"></script>
+    <script src="{{url('/assets/plugins/jquery-datatable/extensions/export/pdfmake.min.js') }}"></script>
+    <script src="{{url('/assets/plugins/jquery-datatable/extensions/export/vfs_fonts.js') }}"></script>
+    <script src="{{url('/assets/plugins/jquery-datatable/extensions/export/buttons.html5.min.js') }}"></script>
+    <script src="{{url('/assets/plugins/jquery-datatable/extensions/export/buttons.print.min.js') }}"></script>
+   
+     <!-- Custom Js -->
+ 
+    <script src="{{url('/assets/js/pages/tables/jquery-datatable.js') }}"></script>
 </body>
+
+<script type="text/javascript">
+  $(function () {
+    var table = $('.data-table').DataTable({
+        processing: true,
+        serverSide: true,
+        ajax: "{{ route('users.index') }}",
+
+        columns: [
+
+            {data: 'id', name: 'id'},
+
+            {data: 'name', name: 'name'},
+
+            {data: 'email', name: 'email'},
+
+            {data: 'action', name: 'action', orderable: false, searchable: false},
+
+        ]
+    });  
+  });
+</script>
+
 </html>
