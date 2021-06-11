@@ -73,6 +73,9 @@
                              <li>
                                 <a href="{{url('kdbank')}}">Kode Bank</a>
                             </li>
+                             <li>
+                                <a href="{{url('karyawan')}}">Karyawan</a>
+                            </li>
                             
                         </ul>
                     </li>

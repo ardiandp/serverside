@@ -15,7 +15,7 @@ class BcacvSeeder extends Seeder
     public function run()
     {
        $faker = Faker::create('id_ID');
-        for($i=1; $i <=12; $i++)
+        for($i=1; $i <=2000; $i++)
         {
         	DB::table('bcacv')->insert([
         	'tanggal'=> $faker->dateTimeThisCentury()->format('Y-m-d'),

@@ -23,7 +23,7 @@ class ProdukSeeder extends Seeder
        		'nama_produk'=>$faker->name,
         	'id_kategori'=>$faker->numberBetween(11,99),
             'berat'=>$faker->numberBetween(1,20),
-        	'gambar'=>$faker->image('public/storage/images',640,480, null, false),
+        	'gambar'=>$faker->image('public/storage/foto_produk',640,480, null, false),
        		'keterangan'=>$faker->realText(180),
             'harga' =>$faker->numberBetween(1000,200000),
             'expired' =>$faker->dateTimeThisCentury()->format('Y-m-d'),

@@ -6,7 +6,72 @@
     <section class="content">
         <div class="container-fluid">
 
-        	
+              @if ($message = Session::get('success'))
+        <div class="alert alert-success alert-block">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+                <strong>{{ $message }}</strong>
+        </div>
+       
+        @endif
+    
+        @if (count($errors) > 0)
+            <div class="alert alert-danger">
+                <strong>Whoops!</strong> There were some problems with your input.
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+
+
+
+        	<div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                           <h2 class="card-inside-title">Input Password</h2>
+                           <form action="{{url('password/store') }}" method="POST">
+                             @csrf
+                             <div class="row clearfix">
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <input type="text" name="url" class="form-control" placeholder="URL" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <input type="text" name="username" class="form-control" placeholder="Username" />
+                                        </div>
+                                    </div>
+                                </div>
+                                 <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <input type="text" name="password" class="form-control" placeholder="Password" />
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="body">
+                                    <input type="submit" name="simpan" class="btn btn-success waves-effect" value="Simpan Password">
+                                
+                            </div>
+                            </div>
+                        </form>
+                            
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <!-- #END# Select -->   
             
             <!-- Exportable Table -->
             <div class="row clearfix">
@@ -44,7 +109,7 @@
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                             <th>No</th>
+                                            <th>No</th>
                                             <th>Url</th>
                                             <th>Username</th>
                                             <th>Pasword</th>

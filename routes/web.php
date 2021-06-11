@@ -8,6 +8,8 @@ use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\BankController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\KaryawanController;
+use App\Http\Controllers\BcacvController;
 use App\Http\Controllers\MyExportImportController;
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +43,13 @@ Route::get('users', [UserController::class, 'index'])->name('users.index');
 //Route::delete('/users/{id}','UserController@destroy')->name('users.destroy');
 //Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('users.destroy');
 
+Route::get('karyawan', [KaryawanController::class, 'index'])->name('karyawan.index');
+Route::get('karyawan/tambah', [KaryawanController::class, 'tambah'])->name('karyawan.tambah');
+Route::post('karyawan/store', [KaryawanController::class, 'store'])->name('karyawan.store');
+Route::get('karyawan/profil/{id}', [KaryawanController::class, 'profil'])->name('karyawan.profil');
+
+
+Route::get('bcacv', [bcacvController::class, 'index'])->name('bcacv.index');
 
 //Post
 Route::get('/posts', [PostController::class, 'index']);
@@ -49,6 +58,7 @@ Route::get('/posts', [PostController::class, 'index']);
 
 //password
 Route::get('/password', [PasswordController::class, 'index']);
+Route::get('password/ajax', [PasswordController::class, 'ajax'])->name('password.ajax');
 Route::post('/password/store', [PasswordController::class, 'store']);
 Route::get('/password/destroy/{id}', [PasswordController::class, 'destroy']);
 Route::get('/password/edit/{id}', [PasswordController::class, 'edit']);

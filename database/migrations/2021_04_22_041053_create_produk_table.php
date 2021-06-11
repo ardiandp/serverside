@@ -17,12 +17,12 @@ class CreateProdukTable extends Migration
             $table->bigIncrements('id');
             $table->string('kode_produk');
             $table->string('nama_produk');
-            $table->integer('id_kategori');
-            $table->string('berat');
+            $table->integer('id_kategori')->nullable();
+            $table->string('berat')->nullable();
             $table->string('gambar');
             $table->string('keterangan');
             $table->integer('harga');
-            $table->string('expired');
+            $table->string('expired')->nullable();
             $table->string('publish');
             $table->timestamps();
 

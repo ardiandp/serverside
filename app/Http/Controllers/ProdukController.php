@@ -29,7 +29,7 @@ class ProdukController extends Controller
             //'kode_produk' => 'required|min:3',
         ]); */
         $imageName = time().'.'.$request->image->extension();  
-        $request->image->move(public_path('storage/images'), $imageName);
+        $request->image->move(public_path('storage/foto_produk'), $imageName);
 
 
         //$request->validate($valid);  

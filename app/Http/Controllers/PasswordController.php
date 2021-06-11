@@ -17,6 +17,33 @@ class PasswordController extends Controller
         return view('password.index',compact('pass'));
     }
 
+    public function ajax(Request $request)
+    {
+        if ($request->ajax()) {
+
+            $data = Password::select('*');
+
+            return Datatables::of($data)
+
+                    ->addIndexColumn()
+
+                    ->addColumn('action', function($row){     
+
+                           $btn = '<a href="javascript:void(0)" class="edit btn btn-primary btn-sm">View</a> <a href="javascript:void(0)" class="edit btn btn-warning btn-sm">Edit</a> ';   
+
+                            return $btn;
+
+                    })
+
+                    ->rawColumns(['action'])
+
+                    ->make(true);
+
+        }       
+
+        return view('test.password');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -35,13 +62,22 @@ class PasswordController extends Controller
      */
     public function store(Request $request)
     {
-        $pass = new Password;
+       $pass = new Password;
         $pass->url = $request->url;
         $pass->username = $request->username;
         $pass->password = $request->password;
         $pass->save();
 
-        return redirect('/password');
+        //return redirect('/password'); 
+         /* $request->validate([
+            'url'     =>'required',
+            'username'=> 'required',
+            'password'=> 'password',
+        ]);
+
+        Password::create($request->all());*/
+        return back()
+         ->with('success','Password Created Successfull');
     }
 
     /**
@@ -94,7 +130,8 @@ class PasswordController extends Controller
         $pass = Password::findOrFail($id);
         $pass->update($request->all());
 
-        return redirect('password');
+        return back()
+         ->with('success','Password Created Successfull');
     }
 
     /**
