@@ -10,6 +10,8 @@ use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\BcacvController;
+use App\Http\Controllers\KdbankController;
+use App\Http\Controllers\NorekeningController;
 use App\Http\Controllers\MyExportImportController;
 /*
 |--------------------------------------------------------------------------
@@ -48,8 +50,12 @@ Route::get('karyawan/tambah', [KaryawanController::class, 'tambah'])->name('kary
 Route::post('karyawan/store', [KaryawanController::class, 'store'])->name('karyawan.store');
 Route::get('karyawan/profil/{id}', [KaryawanController::class, 'profil'])->name('karyawan.profil');
 
-
+//BANK
 Route::get('bcacv', [bcacvController::class, 'index'])->name('bcacv.index');
+Route::get('kdbank', [KdbankController::class, 'index'])->name('kdbank.index');
+Route::get('norekening', [NorekeningController::class, 'index'])->name('norekening.index');
+
+
 
 //Post
 Route::get('/posts', [PostController::class, 'index']);

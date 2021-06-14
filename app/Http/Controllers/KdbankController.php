@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Kdbank;
+use DataTables;
 
 class KdbankController extends Controller
 {
@@ -11,10 +13,33 @@ class KdbankController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
+
     {
-        $kdbnak = Kdbank::latest()->get();
-        return view('bank.kdbank',compact('kdbank'));
+
+        if ($request->ajax()) {
+
+            $data = Kdbank::select('*');
+
+            return Datatables::of($data)
+
+                    ->addIndexColumn()
+
+                    ->addColumn('action', function($row){     
+
+                           $btn = '<a href="javascript:void(0)" class="edit btn btn-primary btn-sm">View</a> <a href="javascript:void(0)" class="edit btn btn-warning btn-sm">Edit</a> ';   
+
+                            return $btn;
+
+                    })
+
+                    ->rawColumns(['action'])
+
+                    ->make(true);
+
+        }       
+        	//echo "$data";
+        return view('bank.kdbank');
 
     }
 
@@ -81,16 +106,7 @@ class KdbankController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $valid = [
-            'nama_bank'=>'requires',
-            'kode'=>'required'
-        ];
-        $request->validate($valid);
-        $kdbank = Kdbank::FIndOrFail($id);
-        $kdbank>->update($request->all());
 
-        return back()
-        ->with('success','Update Sucessfull');
     }
 
     /**

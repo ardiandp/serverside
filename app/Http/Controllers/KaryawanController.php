@@ -15,7 +15,7 @@ class KaryawanController extends Controller
 
         if ($request->ajax()) {
 
-            $data = Karyawan::select('*');
+            $data = Karyawan::latest()->get();
 
             return Datatables::of($data)
 

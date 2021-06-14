@@ -14,7 +14,7 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                               Kode Bank
+                               Data No Rekening
                             </h2>
                             <ul class="header-dropdown m-r--5">
                                 <li class="dropdown">
@@ -41,9 +41,13 @@
 
                 <th>No</th>
 
-                <th>Nama Bank</th>
+                <th>Atas Nama</th>
 
-                <th>kode</th>              
+                <th>Alias</th>
+
+                <th>Norek</th>
+
+                 <th>Bank</th>
 
                 <th width="100px">Action</th>
 
@@ -93,15 +97,19 @@
     var table = $('.data-table').DataTable({
         processing: true,
         serverSide: true,
-        ajax: "{{ route('kdbank.index') }}",
+        ajax: "{{ route('norekening.index') }}",
 
         columns: [
 
             {data: 'id', name: 'id'},
 
-            {data: 'nama_bank', name: 'nama_bank'},
+            {data: 'atas_nama', name: 'atas_nama'},
 
-            {data: 'kode', name: 'kode'},        
+            {data: 'alias', name: 'alias'},
+
+            {data: 'norek', name: 'norek'},
+
+            {data: 'bank', name: 'bnak'},
 
             {data: 'action', name: 'action', orderable: false, searchable: false},
 

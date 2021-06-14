@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
         KategoriSeeder::class,
         KdbankSeeder::class,
         KaryawanSeeder::class,
+        NorekeningSeeder::class,
         ]);
     }
 }

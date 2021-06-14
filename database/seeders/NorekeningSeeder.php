@@ -6,7 +6,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Faker\Factory as Faker;
 
-class NorekSeeder extends Seeder
+class NorekeningSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,7 +15,7 @@ class NorekSeeder extends Seeder
      */
     public function run()
     {
-         $faker = Faker::create('id_ID');
+        $faker = Faker::create('id_ID');
         for($i=1; $i <=1200; $i++)
         {
         	DB::table('norekening')->insert([

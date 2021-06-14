@@ -76,6 +76,9 @@
                              <li>
                                 <a href="{{url('karyawan')}}">Karyawan</a>
                             </li>
+                            <li>
+                                <a href="{{url('norekening')}}">No Rekening</a>
+                            </li>
                             
                         </ul>
                     </li>
